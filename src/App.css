@@ -1,0 +1,118 @@
+@-webkit-keyframes move
+{
+    from {
+        left: 0;
+    }
+    to {
+        left: 1000px;
+    }
+}
+@keyframes move
+{
+    from {
+        left: 0;
+    }
+    to {
+        left: 1000px;
+    }
+}
+@font-face {
+    font-family: retro;
+    src: url('./pages/items/Minecraft.ttf');
+}
+
+.finishLine {
+    box-shadow: 1000px -215px 0 0 rgba(255, 0, 0, 1), 1000px -205px 0 0 rgba(255, 0, 0, 1), 1010px -205px 0 0 rgba(255, 0, 0, 1), 1000px -195px 0 0 rgba(255, 255, 255, 1), 1010px -195px 0 0 rgba(255, 0, 0, 1), 1020px -195px 0 0 rgba(255, 0, 0, 1), 1000px -185px 0 0 rgba(255, 255, 255, 1), 1020px -185px 0 0 rgba(255, 0, 0, 1), 1000px -175px 0 0 rgba(255, 255, 255, 1), 1000px -35px 0 0 rgba(255, 0, 0, 1), 1000px -25px 0 0 rgba(255, 0, 0, 1), 1010px -25px 0 0 rgba(255, 0, 0, 1), 1000px -15px 0 0 rgba(255, 255, 255, 1), 1010px -15px 0 0 rgba(255, 0, 0, 1), 1020px -15px 0 0 rgba(255, 0, 0, 1), 1000px -5px 0 0 rgba(255, 255, 255, 1), 1020px -5px 0 0 rgba(255, 0, 0, 1), 1000px 0px 0 0 rgba(255, 255, 255, 1);
+    height: 10px;
+    width: 10px;
+}
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.horse{
+    text-decoration: none;
+    padding-right: 20px;
+    left: 0;
+    position: relative;
+    display: block;
+}
+
+.animate{
+    -webkit-animation: move 5s forwards;
+    animation: move 5s forwards;
+}
+.navList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.navItem {
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+nav{
+    font-family: retro;
+    background-color: rgb(58, 57, 57);
+    color: white;
+    height: 50px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+.box{
+    width: auto;
+    height: auto;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 50px;
+}
+.container {
+    font-family: retro;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: auto;
+    background-color: black;
+    color: white;
+    overflow: hidden
+}
+.center{
+    align-items: center;
+    justify-content: top center;
+}
+.group {
+    display: flex;
+    justify-content: center;
+}
+.itemBoxs{
+    font-size: x-large;
+    border: 2px solid;
+    border-radius: 25px;
+    width: auto;
+    padding: 50px;
+    margin: 50px auto;
+}
+.bet
+{
+    align-items: center;
+    justify-content: center ;
+    display: flex;
+    width: auto;
+    
+}
+button{
+    font-family: retro;
+}
