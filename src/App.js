@@ -16,7 +16,7 @@ function App() {
   })
   localStorage.setItem("data",JSON.stringify(data));
   //handle data sent from the race
-  function handleData(newMoney, newWin = 0, newLoss = 0, netPos = 0, netNeg = 0)
+  function handleData(newMoney, newWin, newLoss, netPos, netNeg)
   {
     changeData(prevState => ({
       ...prevState,
