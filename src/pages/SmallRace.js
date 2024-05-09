@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import horse from './items/horse.png';
 function SmallRace({money, horseNum, sendData, handleMoney})
 {
+    //items having to do with controlling the race
     const[race, changeRace] = useState({
         winner: 0,
         finishers: 0,
         id: 0,
         raceStart: false
     })
+    //items having to do with bets
     const[bets, changeBets]=useState({
         currentMoney: money,
         betAmount: 0,
@@ -18,15 +20,18 @@ function SmallRace({money, horseNum, sendData, handleMoney})
         neg: 0,
         betPlaced: false
     })
-    console.log(horseNum);
+    //horses
     const [horses, setHorses] = useState(
         Array.from({length: horseNum}, (_, i) => ({
+            //delay in starting
             delay: getRan(1.2, 0),
+            //how long they will take to get to the finish line
             duration: getRan(5, 2)
         }))
     );
     useEffect(() =>
     {
+        //once all horses get to the finish line run whoWon
         if (race.finishers == horseNum) {
             whoWon();
         }
@@ -35,7 +40,9 @@ function SmallRace({money, horseNum, sendData, handleMoney})
     {
         if (bets.betPlaced) processBet();
     },[race.winner]);
+    //send data back to app.js with updated stats
     useEffect(()=> sendData(bets.currentMoney, bets.win, bets.loss, bets.pos, bets.neg),[bets.win, bets.loss] );
+    //updating your money based off what you bet
     useEffect(() => handleMoney(bets.currentMoney,[bets.currentMoney]));
     function finished()
     {
@@ -44,7 +51,7 @@ function SmallRace({money, horseNum, sendData, handleMoney})
             finishers: race.finishers + 1
         }));
     }
-
+    //get the fastest time from all 3 horses, fastest is determined winner
     function whoWon()
     {
         let totalTimes = horses.map((horse) => horse.delay + horse.duration);
@@ -58,6 +65,7 @@ function SmallRace({money, horseNum, sendData, handleMoney})
             betPlaced: true
         }))
     }
+    //if your bet won you get your money back * the amount of horses
     function processBet()
     {
         if(bets.horseBet == race.winner)
@@ -66,7 +74,7 @@ function SmallRace({money, horseNum, sendData, handleMoney})
                     ...prevState,
                     currentMoney: money + (Number(bets.betAmount) * horseNum),
                     win: 1,
-                    pos: bets.pos + (Number(bets.betAmount) * horseNum)
+                    pos: (Number(bets.betAmount) * horseNum) - bets.betAmount
                 }));
             }
         else

@@ -8,12 +8,14 @@ import SmallRace from "./pages/SmallRace";
 import Settings from './pages/settings';
 
 function App() {
+  //data is either equal to saved storage or default
   const [data,changeData] = useState(() => {
     var saved = localStorage.getItem("data");
     saved = JSON.parse(saved);
     return saved || {money: 1000, horses:3, wins: 0, loss: 0, pos: 0, neg: 0}
   })
   localStorage.setItem("data",JSON.stringify(data));
+  //handle data sent from the race
   function handleData(newMoney, newWin = 0, newLoss = 0, netPos = 0, netNeg = 0)
   {
     changeData(prevState => ({
@@ -25,6 +27,7 @@ function App() {
       neg: data.neg + netNeg
     }))
   }
+  //handle money whenever it changes
   function handleMoney(newMoney)
   {
     changeData(prevState => ({
@@ -32,6 +35,7 @@ function App() {
       money: newMoney
     }))
   }
+  //handle data sent from settings
   function settingsData(newMoney = 0, newHorses = 3)
   {
     changeData(prevState => ({
